@@ -41,7 +41,7 @@ const TrendingProducts = () => {
                                              transition-opacity duration-300 absolute top-2 right-3 bg-[#ECF4D3] rounded-full p-4 cursor-pointer'>
                                 <RiShoppingBag3Fill  size={20}/>
                             </div>
-                            <img src={item.image} className='w-full md:w-[300] h-[326] cursor-pointer' />
+                            <img src={item.image} className='w-full md:w-[300px] h-[326px] cursor-pointer' />
                             <div className='flex flex-row items-start mt-1'>
                                 {[...Array(5)].map((_,i)=>
                                    i<item.rating?(
