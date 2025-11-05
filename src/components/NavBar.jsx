@@ -16,7 +16,7 @@ const NavBar = () => {
         { path: "/contact", text: "Contact" }
     ]
     return (
-        <nav className="fixed z-20  flex flex-row items-center justify-between px-4 md:px-40 py-4 w-full">
+        <nav className="fixed z-20  flex flex-row items-center justify-between px-4 py-4 w-full">
             <img src={logo} alt="logo" className='text-white' />
             {
                 !isShowMobileMenu ?
