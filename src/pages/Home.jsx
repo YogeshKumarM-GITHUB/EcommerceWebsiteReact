@@ -1,3 +1,4 @@
+import FlashSale from "../components/FlashSale";
 import HeroSection from "../components/HeroSection";
 import PackageDetails from "../components/PackageDetails";
 import TrendingProducts from "../components/TrendingProducts";
@@ -8,6 +9,7 @@ const Home=()=>{
             <HeroSection/>
             <PackageDetails/>
             <TrendingProducts/>
+            <FlashSale/>
         </div>
     )
 }
