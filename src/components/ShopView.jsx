@@ -1,4 +1,4 @@
-import shop from '../assets/shop.jpg';
+import shop from '../assets/Shop.jpg';
 const ShopView = () => {
     return (
         <div className='backdrop-blur-md' style={{
