@@ -1,7 +1,13 @@
+import ShoppingProducts from "../components/ShoppingProducts";
+import ShopView from "../components/ShopView";
+import FlashSale from "../components/FlashSale";
+
 const Shop=()=>{
     return(
         <div>
-            Shop Page
+          <ShopView/>
+          <ShoppingProducts/>
+          <FlashSale/>
         </div>
     )
 }

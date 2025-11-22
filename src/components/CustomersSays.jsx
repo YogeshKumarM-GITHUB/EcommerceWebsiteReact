@@ -22,7 +22,7 @@ const CustomersSays = () => {
         }
     ]
 
-    const TestimonalCard = ({pic,text,client}) => {
+ const TestimonalCard = ({pic,text,client}) => {
         return (
             <div className="bg-white mt-10 w-auto md:max-w-md p-8 rounded-md">
                 <FaQuoteLeft size={20} className="text-green-600" />
@@ -34,6 +34,7 @@ const CustomersSays = () => {
             </div>
         )
     }
+
 
     return (
         <div className="bg-[#E9F1CB] mt-10">

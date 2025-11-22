@@ -1,7 +1,15 @@
+import ContactForm from "../components/ContactForm";
+import ContactView from "../components/ContactView";
+import FollowUs from "../components/FollowUs";
+import FlashSale from "../components/FlashSale";
+
 const Contact=()=>{
     return(
         <div>
-            Contact Page
+            <ContactView />
+            <ContactForm/>
+            <FollowUs/>
+            <FlashSale/>
         </div>
     )
 }
