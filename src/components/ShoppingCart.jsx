@@ -1,9 +1,9 @@
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import product1 from '../assets/product-01.jpg';
-
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = ({ open, onClose }) => {
-
+    const navigate=useNavigate();
     const CartItems = [
         {
             id: 1,
@@ -86,7 +86,7 @@ const ShoppingCart = ({ open, onClose }) => {
             quantity: 1
         }
     ]
-
+    const total=CartItems.reduce((sum,item)=>sum+item.price*item.quantity,0);
     return (
         <div className={`fixed bg-white top-0 right-0 h-screen w-[400px] shadow-lg transform transition-transform duration-300 ease-in-out z-50 p-2 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
             {/* Header */}
@@ -122,12 +122,12 @@ const ShoppingCart = ({ open, onClose }) => {
                     <hr className=" bg-gray-600 " />
                     <div className="flex flex-row items-center justify-between">
                         <p className="text-gray-700 font-semibold">Total:</p>
-                        <p className="text-gray-700 font-semibold">$95.00</p>
+                        <p className="text-gray-700 font-semibold">${total.toFixed(2)}</p>
                     </div>
                     <hr className=" bg-gray-600 " />
                     <div>
                         <button className="w-full text-white py-3 rounded-full bg-lime-600 hover:bg-lime-700 transition-colors duration-300 cursor-pointer">View cart</button>
-                        <button className="w-full  text-white py-3 rounded-full bg-lime-600 hover:bg-green-500 transition-colors duration-300 mt-2 cursor-pointer">Check out</button>
+                        <button onClick={()=>{navigate('/checkout');onClose()}} className="w-full  text-white py-3 rounded-full bg-lime-600 hover:bg-green-500 transition-colors duration-300 mt-2 cursor-pointer">Check out</button>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/header-logo.svg'
+import logo from '../assets/normal-header.svg'
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { GrYoutube } from "react-icons/gr";
@@ -18,8 +18,8 @@ const NavBar = () => {
         { path: "/contact", text: "Contact" }
     ]
     return (
-        <nav className={`fixed z-20  flex flex-row items-center justify-between px-4 py-4 w-full`}>
-            <img src={logo} alt="logo" className='text-white' />
+        <nav className={` shadow-md fixed z-20  bg-white flex flex-row items-center justify-between px-4 py-4 w-full`}>
+            <img src={logo} alt="logo" />
             {
                 !isShowMobileMenu ?
                     <CgMenuLeftAlt onClick={() => setShowMobileMenu(!isShowMobileMenu)} size={40} className='md:hidden cursor-pointer' /> :
@@ -28,7 +28,7 @@ const NavBar = () => {
             {/* for mobile  */}
             {
                 isShowMobileMenu &&
-                <div className="absolute top-[64px] left-0 w-full bg-white shadow-lg flex flex-col items-center  gap-6 py-6 text-lg animate-slideDown md:hidden">
+                <div className="absolute  left-0 w-full bg-white shadow-lg flex flex-col items-center  gap-6 py-6 text-lg animate-slideDown md:hidden">
                     <ul className='flex flex-col items-center gap-8'>
                         {
                             NavLinks.map((link, index) => {
@@ -54,7 +54,7 @@ const NavBar = () => {
                             return (
                                 <li key={index}>
                                     <NavLink to={link.path} className={({ isActive }) =>
-                                        `text-white hover:text-green-400 ${isActive ? "text-green-400" : ""}`
+                                        `text-black hover:text-green-400 ${isActive ? "text-green-400" : ""}`
                                     }>{link.text}</NavLink>
                                 </li>
                             )
@@ -63,22 +63,22 @@ const NavBar = () => {
                 </ul>
                 <ul className='flex flex-row items-center gap-6 ml-4'>
                     <li>
-                        <Link className='hover:text-green-400 text-white'>
+                        <Link className='hover:text-green-400 text-black'>
                             <FaFacebook />
                         </Link>
                     </li>
                     <li>
-                        <Link className='hover:text-green-400 text-white'>
+                        <Link className='hover:text-green-400 text-black'>
                             <FaInstagram />
                         </Link>
                     </li>
                     <li>
-                        <Link className='hover:text-green-400 text-white'>
+                        <Link className='hover:text-green-400 text-black'>
                             <GrYoutube />
                         </Link>
                     </li>
                     <li>
-                        <Link onClick={() => setShowCart(!showCart)} className='hover:text-green-400 text-white'>
+                        <Link onClick={() => setShowCart(!showCart)} className='hover:text-green-400 text-black'>
                             <FaShoppingBag />
                         </Link>
                     </li>
