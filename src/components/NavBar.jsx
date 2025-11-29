@@ -6,9 +6,11 @@ import { GrYoutube } from "react-icons/gr";
 import { FaShoppingBag } from "react-icons/fa";
 import { CgClose, CgMenuLeftAlt } from "react-icons/cg";
 import { useState } from 'react';
+import ShoppingCart from './ShoppingCart';
 
 const NavBar = () => {
     const [isShowMobileMenu, setShowMobileMenu] = useState(false);
+    const [showCart, setShowCart] = useState(false);
     const NavLinks = [
         { path: "/", text: "Home" },
         { path: "/shop", text: "Shop" },
@@ -16,7 +18,7 @@ const NavBar = () => {
         { path: "/contact", text: "Contact" }
     ]
     return (
-        <nav className="fixed z-20  flex flex-row items-center justify-between px-4 py-4 w-full">
+        <nav className={`fixed z-20  flex flex-row items-center justify-between px-4 py-4 w-full`}>
             <img src={logo} alt="logo" className='text-white' />
             {
                 !isShowMobileMenu ?
@@ -76,13 +78,19 @@ const NavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className='hover:text-green-400 text-white'>
+                        <Link onClick={() => setShowCart(!showCart)} className='hover:text-green-400 text-white'>
                             <FaShoppingBag />
                         </Link>
                     </li>
                 </ul>
             </div>
             {/* end of desktop */}
+            {
+                showCart && 
+                <div className="fixed inset-0 bg-black/40 opacity-100 overflow-y-auto">
+                   <ShoppingCart open={showCart} onClose={()=>setShowCart(false)} />
+                </div>
+            }
         </nav>
     )
 }
