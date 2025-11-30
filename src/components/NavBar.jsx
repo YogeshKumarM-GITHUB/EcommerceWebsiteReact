@@ -28,8 +28,8 @@ const NavBar = () => {
             {/* for mobile  */}
             {
                 isShowMobileMenu &&
-                <div className="absolute  left-0 w-full bg-white shadow-lg flex flex-col items-center  gap-6 py-6 text-lg animate-slideDown md:hidden">
-                    <ul className='flex flex-col items-center gap-8'>
+                <div className="absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-center  gap-6 py-6 text-lg animate-slideDown md:hidden">
+                    <ul className='flex flex-col items-center gap-8 '>
                         {
                             NavLinks.map((link, index) => {
                                 return (
@@ -87,7 +87,7 @@ const NavBar = () => {
             {/* end of desktop */}
             {
                 showCart && 
-                <div className="fixed inset-0 bg-black/40 opacity-100 overflow-y-auto">
+                <div className="hidden md:block fixed inset-0 bg-black/40 opacity-100 overflow-y-auto">
                    <ShoppingCart open={showCart} onClose={()=>setShowCart(false)} />
                 </div>
             }
