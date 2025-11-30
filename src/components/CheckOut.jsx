@@ -12,7 +12,7 @@ const CheckOut = () => {
                         <IoCalendarClearOutline size={25} className="text-[#88Ad35] m-4" />
                         <p>Have a coupon? <span onClick={() => setShowCoupon(!showCoupon)} className="text-[#88AD35] cursor-pointer">Click here to enter your code</span></p>
                     </div>
-                    <div className={`p-2 flex flex-col md:flex-row items-center md:gap-2  mt-8 transform transition-all duration-300 ease-in-out ${showCoupon ? '-translate-y-5 opacity-100' : 'translate-y-full opacity-0'}`}>
+                    <div className={`p-2 flex flex-col md:flex-row items-center md:gap-2  mt-8 transform transition-all duration-300 ease-in-out ${showCoupon ? 'max-h-10 opacity-100' : 'max-h-0 opacity-0'}`}>
                         <form>
                             <input type="text" placeholder="Coupon Code" className="border border-gray-300 p-2 w-full" />
                             <button className="bg-[#88Ad35] ml-2 px-5 py-2 text-white rounded-full w-full mt-2">Apply coupon</button>
@@ -20,7 +20,7 @@ const CheckOut = () => {
                     </div>
                 </div>
                 {/* Billing Details */}
-                <div className="flex flex-col md:flex-row gap-4 p-1">
+                <div className="flex flex-col md:flex-row gap-4 p-1 mt-10 md:mt-4">
 
                     <form className="flex flex-col gap-2 w-full md:w-1/2 p-4">
 

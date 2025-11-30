@@ -13,8 +13,8 @@ const Footer = () => {
         { path: "/contact", text: "Contact" }
     ]
     return (
-        <div className='bg-[#E9F1CB]   w-full'>
-        <footer className="flex flex-col md:flex-row items-center justify-between px-4 py-4 max-w-7xl mx-auto gap-y-4 md:gap-y-0">
+        <div className='bg-[#E9F1CB]  w-full'>
+        <footer className=" flex flex-col md:flex-row items-center justify-between px-4 py-4 max-w-7xl mx-auto gap-y-4 md:gap-y-0">
 
             <img src={logo} alt="logo" className='text-black' />
             {/* for desktop */}

@@ -126,7 +126,7 @@ const ShoppingCart = ({ open, onClose }) => {
                     </div>
                     <hr className=" bg-gray-600 " />
                     <div>
-                        <button className="w-full text-white py-3 rounded-full bg-lime-600 hover:bg-lime-700 transition-colors duration-300 cursor-pointer">View cart</button>
+                        <button onClick={()=>{navigate('/cart-details');onClose()}} className="w-full text-white py-3 rounded-full bg-lime-600 hover:bg-lime-700 transition-colors duration-300 cursor-pointer">View cart</button>
                         <button onClick={()=>{navigate('/checkout');onClose()}} className="w-full  text-white py-3 rounded-full bg-lime-600 hover:bg-green-500 transition-colors duration-300 mt-2 cursor-pointer">Check out</button>
                     </div>
                 </div>
