@@ -11,7 +11,6 @@ const CartDetails = () => {
                         <thead>
                             <tr className="border border-gray-300 bg-gray-100">
                                 <th className="text-left p-4"></th>
-                                <th className="text-left p-4"></th>
                                 <th className="text-left p-4">Product</th>
                                 <th className="text-left p-4">Price</th>
                                 <th className="text-left p-4">Quantity</th>
@@ -19,9 +18,13 @@ const CartDetails = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="border-b">
-                                <td className="p-4"><CiCircleRemove className='cursor-pointer bg-white shadow-2xs' size={20} /></td>
-                                <td><img src={product1} className='h-20 w-20 object-fill' alt="product" /></td>
+                            <tr>
+                                <div className="flex items-center gap-2">
+                                    <CiCircleRemove className="cursor-pointer bg-white shadow-2xs" size={20} />
+                                    <span>
+                                        <img src={product1} className="h-20 w-20 object-fill" alt="product" />
+                                    </span>
+                                </div>
                                 <td className="p-4">Starlight Succulent1</td>
                                 <td className="p-4">$55.00</td>
                                 <td className="p-4"><input type="number" value={1} name="quantity" className='border border-gray-300 text-center w-15 outline outline-none focus:border-[#88Ad35]' /></td>
