@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import product1 from '../assets/product-01.jpg';
 import { CiCircleRemove } from "react-icons/ci";
 
 const CartDetails = () => {
+    const [qty,setQty]=useState(1);
     return (
         <div className="mt-4 p-1">
             <div className="max-w-7xl mx-auto border border-gray-300 p-4">
@@ -19,15 +21,15 @@ const CartDetails = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <div className="flex items-center gap-2">
+                               <td className='flex flex-row items-center'>
                                     <CiCircleRemove className="cursor-pointer bg-white shadow-2xs" size={20} />
                                     <span>
                                         <img src={product1} className="h-20 w-20 object-fill" alt="product" />
                                     </span>
-                                </div>
+                               </td>
                                 <td className="p-4">Starlight Succulent1</td>
                                 <td className="p-4">$55.00</td>
-                                <td className="p-4"><input type="number" value={1} name="quantity" className='border border-gray-300 text-center w-15 outline outline-none focus:border-[#88Ad35]' /></td>
+                                <td className="p-4"><input type="number" min={1} onChange={(e)=>setQty(e.target.value)} value={qty} name="quantity" className='border border-gray-300 text-center w-15 outline outline-none focus:border-[#88Ad35]' /></td>
                                 <td className="p-4">$55.00</td>
                             </tr>
                         </tbody>
