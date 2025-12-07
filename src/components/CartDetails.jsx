@@ -4,6 +4,7 @@ import { CiCircleRemove } from "react-icons/ci";
 
 const CartDetails = () => {
     const [qty,setQty]=useState(1);
+    
     return (
         <div className="mt-4 p-1">
             <div className="max-w-7xl mx-auto border border-gray-300 p-4">
