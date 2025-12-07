@@ -89,8 +89,6 @@ const ReviewsTab = () => {
 
 const ProductDetails = () => {
     const [tab, setTab] = useState("Descrption");
-
-
     return (
         <>
             <AddCart />
@@ -154,7 +152,5 @@ const ProductDetails = () => {
             </div>
         </>
     )
-
 }
-
 export default ProductDetails;
