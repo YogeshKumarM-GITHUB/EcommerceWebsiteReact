@@ -21,7 +21,7 @@ const AddCart = () => {
     }, [])
 
     return (
-        <div className={`p-4 fixed top-0 left-0 h-[95px] w-full z-100  bg-white flex flex-row items-center justify-between shadow-md transform transition-all duration-300 ease-in-out ${showcart ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        <div className={`p-4 fixed top-0 left-0 h-[95px] w-full z-100 bg-white flex flex-row items-center justify-between shadow-md transform transition-all duration-300 ease-in-out ${showcart ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
             }`}>
             <div className='flex flex-row items-center gap-2'>
                 <img src={product} alt="product" className='w-20 h-20 object-fill' />
