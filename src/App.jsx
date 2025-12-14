@@ -10,14 +10,20 @@ import CheckOut from './components/CheckOut'
 import CartDetails from './components/CartDetails'
 import ProductDetails from './components/ProductDetails'
 import PageNotFound from './components/PageNotFound'
+import Login from './components/Login'
+import { useState } from 'react'
 
 function App() {
+  const [isLogin, setLogin] = useState(true);
   return (
     <>
-      <NavBar />
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+      {/* <NavBar />
       <div className="pt-16">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -26,10 +32,9 @@ function App() {
           <Route path="/product-details" element={<ProductDetails />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </div>
-      <Footer />
+      </div> */}
+      {/* <Footer /> */}
     </>
   )
 }
-
 export default App
