@@ -1,9 +1,6 @@
 import { useState } from "react";
 
 const Login = () => {
-
-    const [isForgotPassword, setForgotPassword] = useState(false);
-    const [isSignupForm, setSignupForm] = useState(false);
     const [buttontext, setButtonText] = useState("Login");
 
     return (
@@ -19,8 +16,8 @@ const Login = () => {
                             <button className="p-3 text-white bg-linear-to-r from-[#3f8dd5] to-[#864bb0] cursor-pointer">{buttontext}</button>
                         </form>
                         <div className="mt-4 text-center">
-                            <p className="text-gray-500 text-[15px]">Forgot <span onClick={() => { setForgotPassword(true), setButtonText("Reset Password") }} className="text-[#6867c0] cursor-pointer">Password?</span></p>
-                            <p className="text-gray-500 mt-2">Don't have an account? <span onClick={() => { setSignupForm(true), setButtonText("Sign Up") }} className="text-[#6867c0] cursor-pointer">Sign up</span></p>
+                            <p className="text-gray-500 text-[15px]">Forgot <span onClick={() => { setButtonText("Reset Password") }} className="text-[#6867c0] cursor-pointer">Password?</span></p>
+                            <p className="text-gray-500 mt-2">Don't have an account? <span onClick={() => { setButtonText("Sign Up") }} className="text-[#6867c0] cursor-pointer">Sign up</span></p>
                         </div>
                     </div>
                 </div>
