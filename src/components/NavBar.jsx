@@ -7,6 +7,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { CgClose, CgMenuLeftAlt } from "react-icons/cg";
 import { useState } from 'react';
 import ShoppingCart from './ShoppingCart';
+import { CiLogin } from "react-icons/ci";
 
 const NavBar = () => {
     const [isShowMobileMenu, setShowMobileMenu] = useState(false);
@@ -82,13 +83,18 @@ const NavBar = () => {
                             <FaShoppingBag />
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/login" className='hover:text-green-400 text-black hover:cursor-pointer'>
+                            <CiLogin size={25} />
+                        </Link>
+                    </li>
                 </ul>
             </div>
             {/* end of desktop */}
             {
-                showCart && 
+                showCart &&
                 <div className="hidden md:block fixed inset-0 bg-black/40 opacity-100 overflow-y-auto">
-                   <ShoppingCart open={showCart} onClose={()=>setShowCart(false)} />
+                    <ShoppingCart open={showCart} onClose={() => setShowCart(false)} />
                 </div>
             }
         </nav>
