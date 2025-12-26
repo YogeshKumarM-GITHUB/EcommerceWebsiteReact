@@ -1,20 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { jwtDecode } from "jwt-decode";
+
+
+const token=localStorage.getItem('token');
+let initialState={
+    token:token,
+    user:token?jwtDecode(token):null,
+    isAuthenticated:!token
+}
 
 export const userSlice=createSlice({
     name:'user',
-    initialState:{
-        user:{
-            email:null,
-            password:null,
-        }
-    },
+    initialState,
     reducers:{
         setUserData:(state,action)=>{
-            state.user=action.payload
-            console.log("User set in Redux:", state.user);
+            const token=action.payload;
+            state.token=token;
+            state.user=jwtDecode(token);
+            state.isAuthenticated=true;
+            localStorage.setItem('token',token);    
+        },
+        LogoutUser:(state)=>{
+            state.token=null;
+            state.user=null;
+            state.isAuthenticated=false;
+            localStorage.removeItem('token');
         }
     }
 })
 
-export const {setUserData}=userSlice.actions;
+export const {setUserData,LogoutUser}=userSlice.actions;
 export default userSlice.reducer;

@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/normal-header.svg'
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
@@ -8,8 +8,15 @@ import { CgClose, CgMenuLeftAlt } from "react-icons/cg";
 import { useState } from 'react';
 import ShoppingCart from './ShoppingCart';
 import { CiLogin } from "react-icons/ci";
+import { useDispatch, useSelector } from 'react-redux';
+import { SlLogout } from "react-icons/sl";
+import { LogoutUser } from '../features/user/userSlice';
+import { toast } from 'react-toastify'
 
 const NavBar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const User = useSelector((state) => state.user);
     const [isShowMobileMenu, setShowMobileMenu] = useState(false);
     const [showCart, setShowCart] = useState(false);
     const NavLinks = [
@@ -18,6 +25,17 @@ const NavBar = () => {
         { path: "/about", text: "About" },
         { path: "/contact", text: "Contact" }
     ]
+
+
+    console.log("NavBar User:", User.user, User?.user?.Email);
+
+    const Logout = () => {
+        //debugger;
+        dispatch(LogoutUser());
+        navigate("/login");
+        toast.success("Logged out successfully");
+    }
+
     return (
         <nav className={` shadow-md fixed z-20  bg-white flex flex-row items-center justify-between px-4 py-4 w-full`}>
             <img src={logo} alt="logo" />
@@ -83,9 +101,33 @@ const NavBar = () => {
                             <FaShoppingBag />
                         </Link>
                     </li>
+                    {User?.user &&
+                        <li>
+                            <span className='font-bold bg-green-400 rounded-full p-2'>{User?.user?.Email[0].toUpperCase()}</span>
+                        </li>
+                    }
                     <li>
                         <Link to="/login" className='hover:text-green-400 text-black hover:cursor-pointer'>
-                            <CiLogin size={25} />
+                            {User?.user ? <div className="relative group">
+                                <SlLogout onClick={() => Logout()} size={25} className="cursor-pointer" />
+
+                                <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 
+                                 bg-black text-white text-xs px-2 py-1 rounded
+                                   opacity-0 group-hover:opacity-100
+                                    transition">
+                                    Logout
+                                </span>
+                            </div> :
+                                <div className="relative group">
+                                    <CiLogin size={25} className='cursor-pointer' />
+                                    <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 
+                                 bg-black text-white text-xs px-2 py-1 rounded
+                                   opacity-0 group-hover:opacity-100
+                                    transition">
+                                        Login
+                                    </span>
+                                </div>
+                            }
                         </Link>
                     </li>
                 </ul>
